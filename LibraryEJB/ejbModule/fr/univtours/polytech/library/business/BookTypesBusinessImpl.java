@@ -5,13 +5,13 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import fr.univtours.polytech.library.dao.BookTypesDAO;
+import fr.univtours.polytech.library.dao.DAO;
 import fr.univtours.polytech.library.model.BookTypeBean;
 
 @Stateless
 public class BookTypesBusinessImpl implements BookTypesBusinessLocal, BookTypesBusinessRemote {
 	@Inject
-	private BookTypesDAO dao;
+	private DAO<BookTypeBean> dao;
 
 	@Override
 	public List<BookTypeBean> getBookTypeList() {

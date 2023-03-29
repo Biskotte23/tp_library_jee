@@ -4,34 +4,38 @@ import java.util.ArrayList;
 
 import javax.ejb.Stateless;
 
-import fr.univtours.polytech.library.model.BookTypeBean;
+import fr.univtours.polytech.library.model.AuthorBean;
 
 /**
- * Book type DAO implementation.
+ * Author DAO implementation.
  * @author Jules
  *
  */
 @Stateless
-public class BookTypesDAOImpl implements DAO<BookTypeBean> {
+public class AuthorDAOImpl implements DAO<AuthorBean> {
+
 	@Override
-	public void insert(BookTypeBean bookType) {
+	public void insert(AuthorBean object) {
 		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
-	public void update(BookTypeBean bookType) {
+	public void update(AuthorBean object) {
 		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
-	public ArrayList<BookTypeBean> getAll() {
+	public ArrayList<AuthorBean> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public BookTypeBean get(Integer id) {
+	public AuthorBean get(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 }
