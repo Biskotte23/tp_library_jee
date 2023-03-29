@@ -5,11 +5,9 @@ import java.util.ArrayList;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import fr.univtours.polytech.library.business.factory.BookTypeBusinessLocal;
-import fr.univtours.polytech.library.business.factory.BookTypeBusinessRemote;
-import fr.univtours.polytech.library.business.factory.BusinessLocalFactory;
-import fr.univtours.polytech.library.business.factory.BusinessRemoteFactory;
-import fr.univtours.polytech.library.dao.factory.DAOFactory;
+import fr.univtours.polytech.library.business.factory.local.BookTypeBusinessLocal;
+import fr.univtours.polytech.library.business.factory.remote.BookTypeBusinessRemote;
+import fr.univtours.polytech.library.dao.factory.BookTypeDAO;
 import fr.univtours.polytech.library.model.BookTypeBean;
 
 /**
@@ -20,7 +18,7 @@ import fr.univtours.polytech.library.model.BookTypeBean;
 @Stateless
 public class BookTypeBusinessImpl implements BookTypeBusinessLocal, BookTypeBusinessRemote {
 	@Inject
-	private DAOFactory<BookTypeBean> dao;
+	private BookTypeDAO dao;
 
 	@Override
 	public ArrayList<BookTypeBean> getAll() {
