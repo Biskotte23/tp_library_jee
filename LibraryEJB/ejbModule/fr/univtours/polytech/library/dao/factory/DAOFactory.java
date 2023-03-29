@@ -1,15 +1,14 @@
-package fr.univtours.polytech.library.dao;
+package fr.univtours.polytech.library.dao.factory;
 
 import java.util.ArrayList;
 
-import fr.univtours.polytech.library.model.BookTypeBean;
-
 /**
- * BookType DAO.
- * @author Jules
+ * DAO factory.
+ * @author Jules.
  *
+ * @param <T> DAO class.
  */
-public interface DAO<T> {
+public interface DAOFactory<T> {
 	/**
 	 * Insert a new object.
 	 * @param object Object to insert.

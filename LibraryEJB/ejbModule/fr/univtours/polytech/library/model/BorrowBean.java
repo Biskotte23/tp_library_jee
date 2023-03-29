@@ -1,6 +1,5 @@
 package fr.univtours.polytech.library.model;
 
-import java.awt.print.Book;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -9,8 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.jboss.security.auth.spi.Users.User;
 
 /**
  * Borrow of a book by a user.
@@ -34,12 +31,12 @@ public class BorrowBean implements Serializable {
 	/**
 	 * Borrowed book.
 	 */
-	private Book book;
+	private BookBean book;
 	
 	/**
 	 * Borrower user.
 	 */
-	private User user;
+	private UserBean user;
 	
 	/**
 	 * Get the ID of the borrow.
@@ -77,7 +74,7 @@ public class BorrowBean implements Serializable {
 	 * Get the borrowed book.
 	 * @return Borrowed book.
 	 */
-	public Book getBook() {
+	public BookBean getBook() {
 		return book;
 	}
 
@@ -85,7 +82,7 @@ public class BorrowBean implements Serializable {
 	 * Set the borrowed book.
 	 * @param book New borrowed book.
 	 */
-	public void setBook(Book book) {
+	public void setBook(BookBean book) {
 		this.book = book;
 	}
 
@@ -93,7 +90,7 @@ public class BorrowBean implements Serializable {
 	 * Get the borrower user.
 	 * @return Borrower user.
 	 */
-	public User getUser() {
+	public UserBean getUser() {
 		return user;
 	}
 
@@ -101,7 +98,7 @@ public class BorrowBean implements Serializable {
 	 * Set the borrower user.
 	 * @param user New borrower user.
 	 */
-	public void setUser(User user) {
+	public void setUser(UserBean user) {
 		this.user = user;
 	}
 }
