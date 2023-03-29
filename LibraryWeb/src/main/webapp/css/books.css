@@ -1,0 +1,169 @@
+form {
+	padding: 1rem 2rem;
+	margin-bottom: 6rem;
+	display: flex;
+	flex-flow: row no-wrap;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--color-white);
+	border-radius: 2px;
+	box-shadow: var(--box-shadow);
+}
+
+form .field {
+	margin-right: 6rem;
+	display: flex;
+	flex-flow: row no-wrap;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+form .field:first-child {
+	flex: 1;
+	max-width: 50rem;
+}
+
+form .field label {
+	margin-right: 1rem;
+	font-size: 1.4rem;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+
+form input,
+form select {
+	padding: 0.8rem 1rem;
+	border: none;
+	outline: none;
+}
+
+form .field #search {
+	flex: 1;
+	font-size: 1.3rem;
+	letter-spacing: 0.5px;
+	font-weight: 500;
+	background-color: var(--color-background);
+	border: 1px solid #eee;
+}
+
+form select {
+	cursor: pointer;
+	background-color: var(--color-background);
+	border: 1px solid #eee;
+}
+
+form input[type="checkbox"] {
+	--size: 2rem;
+	width: var(--size);
+	height: var(--size);
+}
+
+form input[type="submit"] {
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	font-weight: 700;
+	cursor: pointer;
+	color: var(--color-white);
+	background-color: var(--color-primary);
+	box-shadow: var(--box-shadow);
+}
+
+ul.books {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 4rem;
+	place-items: center;
+}
+
+ul.books li.book {
+	width: 100%;
+	max-width: 30rem;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+ul.books li.book a {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--color-white);
+	border-radius: 6px;
+	box-shadow: var(--box-shadow);
+}
+
+ul.books li.book a .cover {
+	padding-top: 2rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	background-color: rgba(220, 220, 220, 0.1);
+	border-bottom: 1px solid #ddd;
+	transition: background-color 0.3s ease-in-out;
+}
+
+ul.books li.book a:hover .cover {
+	background-color: rgba(220, 220, 220, 0.4);
+	transition: background-color 0.3s ease-in-out;
+}
+
+ul.books li.book a .cover img {
+	height: 20rem;
+}
+
+ul.books li.book a .info {
+	height: 100%;
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+ul.books li.book a .info h3 {
+	font-size: 1.8rem;
+	margin-bottom: 0.5rem;
+	letter-spacing: 0.5px;
+}
+
+ul.books li.book a .info .author {
+	font-size: 1.3rem;
+	font-style: italic;
+	margin-bottom: 1.5rem;
+}
+
+ul.books li.book a .info footer {
+	flex: 1;
+	display: flex;
+	flex-flow: row no-wrap;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+ul.books li.book a .info footer .gender {
+	font-size: 1.1rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+ul.books li.book a .info footer .availability {
+	font-size: 1.1rem;
+	font-weight: 500;
+	letter-spacing: 0.5px;
+	margin-left: 2rem;
+	white-space: nowrap; 
+}
+
+ul.books li.book a .info footer .availability i {
+	margin-left: 0.2rem;
+}
+
+ul.books li.book a .info footer .availability i.available {
+	color: #00b894;
+}
+
+ul.books li.book a .info footer .availability i.unavailable {
+	color: #d63031;
+}
