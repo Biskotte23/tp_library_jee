@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.univtours.polytech.library.business.BookTypesBusinessLocal;
+import fr.univtours.polytech.library.business.factory.BookTypeBusinessLocal;
+import fr.univtours.polytech.library.business.factory.BusinessLocalFactory;
 import fr.univtours.polytech.library.model.BookTypeBean;
 
 /**
@@ -22,13 +23,13 @@ public class BooksServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@EJB
-	private BookTypesBusinessLocal business;
+	private BookTypeBusinessLocal business;
 
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		List<BookTypeBean> bookTypes = this.business.getBookTypeList();
+		List<BookTypeBean> bookTypes = this.business.getAll();
 
 		request.setAttribute("BOOK_TYPES", bookTypes);
 

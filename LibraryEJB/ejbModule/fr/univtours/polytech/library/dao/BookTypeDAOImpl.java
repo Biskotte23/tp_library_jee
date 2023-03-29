@@ -3,7 +3,10 @@ package fr.univtours.polytech.library.dao;
 import java.util.ArrayList;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
+import fr.univtours.polytech.library.dao.factory.BookTypeDAO;
 import fr.univtours.polytech.library.model.BookTypeBean;
 
 /**
@@ -12,7 +15,10 @@ import fr.univtours.polytech.library.model.BookTypeBean;
  *
  */
 @Stateless
-public class BookTypesDAOImpl implements DAO<BookTypeBean> {
+public class BookTypeDAOImpl implements BookTypeDAO {
+	@PersistenceContext(unitName = "LibraryEJB")
+    private EntityManager em;
+	
 	@Override
 	public void insert(BookTypeBean bookType) {
 		// TODO Auto-generated method stub
