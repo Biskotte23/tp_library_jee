@@ -1,11 +1,16 @@
 package fr.univtours.polytech.library.model;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -26,6 +31,9 @@ public class BookTypeBean implements Serializable {
 	 * Name of the book type.
 	 */
 	private String name;
+	
+	@OneToMany(mappedBy = "bookType", cascade = CascadeType.ALL)
+	private List<BookBean> books;
 	
 	/**
 	 * Get the ID of the book type.
@@ -57,5 +65,19 @@ public class BookTypeBean implements Serializable {
 	 */
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	/**
+	 * @return the books
+	 */
+	public List<BookBean> getBooks() {
+		return books;
+	}
+
+	/**
+	 * @param books the books to set
+	 */
+	public void setBooks(List<BookBean> books) {
+		this.books = books;
 	}
 }

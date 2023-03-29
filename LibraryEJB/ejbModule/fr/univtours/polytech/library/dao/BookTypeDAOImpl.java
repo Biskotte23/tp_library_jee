@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import fr.univtours.polytech.library.dao.factory.BookTypeDAO;
 import fr.univtours.polytech.library.model.BookTypeBean;
@@ -21,7 +22,7 @@ public class BookTypeDAOImpl implements BookTypeDAO {
 	
 	@Override
 	public void insert(BookTypeBean bookType) {
-		// TODO Auto-generated method stub
+		 em.persist(bookType);
 	}
 
 	@Override
@@ -31,13 +32,12 @@ public class BookTypeDAOImpl implements BookTypeDAO {
 
 	@Override
 	public ArrayList<BookTypeBean> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		Query requete = em.createQuery("select bt from BookTypeBean bt");
+		return (ArrayList<BookTypeBean>) requete.getResultList();
 	}
 
 	@Override
 	public BookTypeBean get(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		return em.find(BookTypeBean.class, id);
 	}
 }

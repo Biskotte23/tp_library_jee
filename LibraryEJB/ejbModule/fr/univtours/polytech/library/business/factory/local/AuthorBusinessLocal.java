@@ -7,6 +7,6 @@ import fr.univtours.polytech.library.model.AuthorBean;
  * @author Jules.
  *
  */
-public interface AuthorBsuniessLocal extends BusinessLocalFactory<AuthorBean> {
+public interface AuthorBusinessLocal extends BusinessLocalFactory<AuthorBean> {
 
 }

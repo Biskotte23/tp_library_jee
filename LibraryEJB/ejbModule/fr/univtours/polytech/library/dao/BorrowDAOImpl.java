@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import fr.univtours.polytech.library.dao.factory.BorrowDAO;
 import fr.univtours.polytech.library.model.BorrowBean;
@@ -20,8 +21,8 @@ public class BorrowDAOImpl implements BorrowDAO {
     private EntityManager em;
 	
 	@Override
-	public void insert(BorrowBean object) {
-		// TODO Auto-generated method stub
+	public void insert(BorrowBean borrow) {
+		em.persist(borrow);
 		
 	}
 
@@ -33,14 +34,13 @@ public class BorrowDAOImpl implements BorrowDAO {
 
 	@Override
 	public ArrayList<BorrowBean> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		Query requete = em.createQuery("select b from BorrowBean b");
+		return (ArrayList<BorrowBean>) requete.getResultList();
 	}
 
 	@Override
 	public BorrowBean get(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		return em.find(BorrowBean.class, id);
 	}
 
 }

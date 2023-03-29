@@ -12,6 +12,7 @@ import fr.univtours.polytech.library.model.BorrowBean;
 
 /**
  * Borrow business implementation.
+ * 
  * @author Jules.
  *
  */
@@ -19,28 +20,26 @@ import fr.univtours.polytech.library.model.BorrowBean;
 public class BorrowBusinessImpl implements BorrowBusinessLocal, BorrowBusinessRemote {
 	@Inject
 	private BorrowDAO dao;
-	
+
 	@Override
-	public void insert(BorrowBean object) {
-		// TODO Auto-generated method stub
+	public void insert(BorrowBean borrow) {
+		dao.insert(borrow);
 
 	}
 
 	@Override
-	public void update(BorrowBean object) {
-		// TODO Auto-generated method stub
+	public void update(BorrowBean borrow) {
+		dao.update(borrow);
 
 	}
 
 	@Override
 	public ArrayList<BorrowBean> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.getAll();
 	}
 
 	@Override
 	public BorrowBean get(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.get(id);
 	}
 }

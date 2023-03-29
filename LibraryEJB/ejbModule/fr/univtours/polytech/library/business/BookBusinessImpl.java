@@ -12,6 +12,7 @@ import fr.univtours.polytech.library.model.BookBean;
 
 /**
  * Book business implementation.
+ * 
  * @author Jules.
  *
  */
@@ -19,28 +20,26 @@ import fr.univtours.polytech.library.model.BookBean;
 public class BookBusinessImpl implements BookBusinessLocal, BookBusinessRemote {
 	@Inject
 	private BookDAO dao;
-	
+
 	@Override
-	public void insert(BookBean object) {
-		// TODO Auto-generated method stub
+	public void insert(BookBean book) {
+		dao.insert(book);
 
 	}
 
 	@Override
-	public void update(BookBean object) {
-		// TODO Auto-generated method stub
+	public void update(BookBean book) {
+		dao.update(book);
 
 	}
 
 	@Override
 	public ArrayList<BookBean> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.getAll();
 	}
 
 	@Override
 	public BookBean get(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.get(id);
 	}
 }

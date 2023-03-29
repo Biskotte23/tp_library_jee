@@ -12,6 +12,7 @@ import fr.univtours.polytech.library.model.UserBean;
 
 /**
  * User business implementation.
+ * 
  * @author Jules.
  *
  */
@@ -19,28 +20,26 @@ import fr.univtours.polytech.library.model.UserBean;
 public class UserBusinessImpl implements UserBusinessLocal, UserBusinessRemote {
 	@Inject
 	private UserDAO dao;
-	
+
 	@Override
-	public void insert(UserBean object) {
-		// TODO Auto-generated method stub
+	public void insert(UserBean user) {
+		dao.insert(user);
 
 	}
 
 	@Override
-	public void update(UserBean object) {
-		// TODO Auto-generated method stub
+	public void update(UserBean user) {
+		dao.update(user);
 
 	}
 
 	@Override
 	public ArrayList<UserBean> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.getAll();
 	}
 
 	@Override
 	public UserBean get(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.get(id);
 	}
 }

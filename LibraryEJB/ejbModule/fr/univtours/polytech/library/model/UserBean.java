@@ -2,10 +2,12 @@ package fr.univtours.polytech.library.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -36,6 +38,14 @@ public class UserBean implements Serializable {
 	 * Login of the user.
 	 */
 	private String login;
+	
+	/**
+	 * password of the user.
+	 */
+	private String password;
+	
+	@OneToOne(mappedBy ="user" , cascade = CascadeType.ALL)
+	private BorrowBean borrow;
 	
 	/**
 	 * Status of the user.
@@ -121,4 +131,20 @@ public class UserBean implements Serializable {
 	public void setStatus(UserStatus status) {
 		this.status = status;
 	}
+
+	/**
+	 * @return the password
+	 */
+	public String getPassword() {
+		return password;
+	}
+
+	/**
+	 * @param password the password to set
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	
 }

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import fr.univtours.polytech.library.dao.factory.AuthorDAO;
 import fr.univtours.polytech.library.model.AuthorBean;
@@ -20,8 +21,8 @@ public class AuthorDAOImpl implements AuthorDAO {
     private EntityManager em;
 	
 	@Override
-	public void insert(AuthorBean object) {
-		// TODO Auto-generated method stub
+	public void insert(AuthorBean author) {
+		 em.persist(author);
 		
 	}
 
@@ -33,14 +34,13 @@ public class AuthorDAOImpl implements AuthorDAO {
 
 	@Override
 	public ArrayList<AuthorBean> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		Query requete = em.createQuery("select b from AuthorBean b");
+		return (ArrayList<AuthorBean>) requete.getResultList();
 	}
 
 	@Override
 	public AuthorBean get(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		return em.find(AuthorBean.class, id);
 	}
 
 }

@@ -3,10 +3,12 @@ package fr.univtours.polytech.library.model;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -36,6 +38,7 @@ public class BorrowBean implements Serializable {
 	/**
 	 * Borrower user.
 	 */
+	@OneToOne(cascade = CascadeType.ALL)
 	private UserBean user;
 	
 	/**

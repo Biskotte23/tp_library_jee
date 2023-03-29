@@ -2,10 +2,13 @@ package fr.univtours.polytech.library.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -36,6 +39,9 @@ public class BookBean implements Serializable {
 	 * Cover image of the book.
 	 */
 	private byte[] cover;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	private BookTypeBean bookType;
 	
 	/**
 	 * Get the ID of the book.
@@ -100,4 +106,20 @@ public class BookBean implements Serializable {
 	public void setCover(byte[] cover) {
 		this.cover = cover;
 	}
+
+	/**
+	 * @return the bookType
+	 */
+	public BookTypeBean getBookType() {
+		return bookType;
+	}
+
+	/**
+	 * @param bookType the bookType to set
+	 */
+	public void setBookType(BookTypeBean bookType) {
+		this.bookType = bookType;
+	}
+	
+	
 }

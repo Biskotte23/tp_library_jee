@@ -22,25 +22,21 @@ public class BookTypeBusinessImpl implements BookTypeBusinessLocal, BookTypeBusi
 
 	@Override
 	public ArrayList<BookTypeBean> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.getAll();
 	}
 
 	@Override
 	public BookTypeBean get(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.get(id);
 	}
 
 	@Override
 	public void insert(BookTypeBean bookType) {
-		// TODO Auto-generated method stub
-		
+		dao.insert(bookType);
 	}
 
 	@Override
 	public void update(BookTypeBean bookType) {
-		// TODO Auto-generated method stub
-		
+		dao.update(bookType);
 	}
 }
