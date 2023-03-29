@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.univtours.polytech.library.business.factory.BookTypeBusinessLocal;
-import fr.univtours.polytech.library.business.factory.BusinessLocalFactory;
+import fr.univtours.polytech.library.business.factory.local.BookTypeBusinessLocal;
+import fr.univtours.polytech.library.business.factory.local.BusinessLocalFactory;
 import fr.univtours.polytech.library.model.BookTypeBean;
 
 /**

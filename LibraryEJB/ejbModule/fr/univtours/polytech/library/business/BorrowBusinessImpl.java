@@ -1,34 +1,35 @@
-package fr.univtours.polytech.library.dao;
+package fr.univtours.polytech.library.business;
 
 import java.util.ArrayList;
 
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.inject.Inject;
 
+import fr.univtours.polytech.library.business.factory.local.BorrowBusinessLocal;
+import fr.univtours.polytech.library.business.factory.remote.BorrowBusinessRemote;
 import fr.univtours.polytech.library.dao.factory.BorrowDAO;
 import fr.univtours.polytech.library.model.BorrowBean;
 
 /**
- * Borrow DAO implementation.
- * @author Jules
+ * Borrow business implementation.
+ * @author Jules.
  *
  */
 @Stateless
-public class BorrowDAOImpl implements BorrowDAO {
-	@PersistenceContext(unitName = "LibraryEJB")
-    private EntityManager em;
+public class BorrowBusinessImpl implements BorrowBusinessLocal, BorrowBusinessRemote {
+	@Inject
+	private BorrowDAO dao;
 	
 	@Override
 	public void insert(BorrowBean object) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void update(BorrowBean object) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -42,5 +43,4 @@ public class BorrowDAOImpl implements BorrowDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }

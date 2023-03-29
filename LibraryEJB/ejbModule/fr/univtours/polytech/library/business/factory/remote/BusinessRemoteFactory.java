@@ -1,4 +1,4 @@
-package fr.univtours.polytech.library.business.factory;
+package fr.univtours.polytech.library.business.factory.remote;
 
 import java.util.ArrayList;
 

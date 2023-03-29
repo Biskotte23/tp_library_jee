@@ -1,4 +1,4 @@
-package fr.univtours.polytech.library.business.factory;
+package fr.univtours.polytech.library.business.factory.local;
 
 import java.util.ArrayList;
 

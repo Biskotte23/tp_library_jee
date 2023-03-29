@@ -1,34 +1,35 @@
-package fr.univtours.polytech.library.dao;
+package fr.univtours.polytech.library.business;
 
 import java.util.ArrayList;
 
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.inject.Inject;
 
+import fr.univtours.polytech.library.business.factory.local.UserBusinessLocal;
+import fr.univtours.polytech.library.business.factory.remote.UserBusinessRemote;
 import fr.univtours.polytech.library.dao.factory.UserDAO;
 import fr.univtours.polytech.library.model.UserBean;
 
 /**
- * User DAO implementation.
- * @author Jules
+ * User business implementation.
+ * @author Jules.
  *
  */
 @Stateless
-public class UserDAOImpl implements UserDAO {
-	@PersistenceContext(unitName = "LibraryEJB")
-    private EntityManager em;
+public class UserBusinessImpl implements UserBusinessLocal, UserBusinessRemote {
+	@Inject
+	private UserDAO dao;
 	
 	@Override
 	public void insert(UserBean object) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void update(UserBean object) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -42,5 +43,4 @@ public class UserDAOImpl implements UserDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }
