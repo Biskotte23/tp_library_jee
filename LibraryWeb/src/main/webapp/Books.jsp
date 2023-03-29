@@ -5,9 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Notes</title>
+<title>Bibliothèque</title>
 </head>
 <body>
-	<h1>Books</h1>
+	<h1>Catalogue de livres</h1>
+	<ul>
+		<li><a href="#"><p>Titre livre 1</p><p>Auteur 1</p><p>Genre 1</p><a></li>
+		<li><a href="#"><p>Titre livre 2</p><p>Auteur 2</p><p>Genre 2</p></a></li>
+		<li><a href="#"><p>Titre livre 3</p><p>Auteur 3</p><p>Genre 3</p></a></li>
+	</ul>
 </body>
 </html>
