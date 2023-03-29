@@ -8,6 +8,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Type of a book.
+ * @author Jules
+ *
+ */
 @Entity
 @Table(name = "Book_Type")
 public class BookTypeBean implements Serializable {
