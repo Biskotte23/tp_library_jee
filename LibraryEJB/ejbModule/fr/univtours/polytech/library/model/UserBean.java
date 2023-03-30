@@ -13,14 +13,17 @@ import javax.persistence.Table;
 
 /**
  * User of the app.
- * @user Jules
+ * @user Jules.
  *
  */
 @Entity
 @Table(name = "App_User")
 public class UserBean implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	
+	/**
+	 * ID of the user. 
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -45,6 +48,9 @@ public class UserBean implements Serializable {
 	 */
 	private String password;
 	
+	/**
+	 * Borrows made by the user.
+	 */
 	@OneToMany(mappedBy ="user" , cascade = CascadeType.ALL)
 	private List<BorrowBean> borrows;
 	
@@ -134,18 +140,18 @@ public class UserBean implements Serializable {
 	}
 
 	/**
-	 * @return the password
+	 * Get the password of the user.
+	 * @return Password of the user. 
 	 */
 	public String getPassword() {
 		return password;
 	}
 
 	/**
-	 * @param password the password to set
+	 * Set the password of the user.
+	 * @param password New password of the user.
 	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
 }

@@ -27,9 +27,9 @@ public class BooksServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		List<BookBean> book = this.businessBook.getAll();
+		List<BookBean> books = this.businessBook.getAll();
 
-		request.setAttribute("BOOK", book);
+		request.setAttribute("BOOKS", books);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("Books.jsp");
 		dispatcher.forward(request, response);

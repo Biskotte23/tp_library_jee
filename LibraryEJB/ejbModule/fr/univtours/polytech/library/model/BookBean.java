@@ -1,6 +1,7 @@
 package fr.univtours.polytech.library.model;
 
 import java.io.Serializable;
+import java.util.Base64;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -8,12 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
  * Book.
- * @author Jules
+ * @author Jules.
  *
  */
 @Entity
@@ -21,6 +21,9 @@ import javax.persistence.Table;
 public class BookBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * ID of the user. 
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -38,6 +41,7 @@ public class BookBean implements Serializable {
 	/**
 	 * Cover image of the book.
 	 */
+	// @LOB
 	private byte[] cover;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
@@ -111,32 +115,42 @@ public class BookBean implements Serializable {
 	}
 
 	/**
-	 * @return the bookType
+	 * Get the type of the book.
+	 * @return Type of the book.
 	 */
 	public BookTypeBean getBookType() {
 		return bookType;
 	}
 
 	/**
-	 * @param bookType the bookType to set
+	 * Set the type of the book.
+	 * @param bookType New type of the book.
 	 */
 	public void setBookType(BookTypeBean bookType) {
 		this.bookType = bookType;
 	}
 
 	/**
-	 * @return the author
+	 * Get the author of the book.
+	 * @return Author of the book.
 	 */
 	public AuthorBean getAuthor() {
 		return author;
 	}
 
 	/**
-	 * @param author the author to set
+	 * Set the author of the book.
+	 * @param author New author of the book.
 	 */
 	public void setAuthor(AuthorBean author) {
 		this.author = author;
 	}
 	
-	
+	/**
+	* Transform the byte[] with picture data into String.
+	* @return Sring allowing picture display.
+	*/
+	public String getBase64Image() {
+	    return Base64.getEncoder().encodeToString(cover);
+	}
 }
