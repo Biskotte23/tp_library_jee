@@ -8,6 +8,7 @@
 </head>
 <body>
 	<form action="login" method="post">
+	<h2 name="pseudo">Bienvenue ${requestScope.USER.login}</h2>
 		<fieldset>
 			<legend>Connexion</legend>
 			<table>

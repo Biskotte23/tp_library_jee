@@ -1,6 +1,7 @@
 package fr.univtours.polytech.library.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -42,6 +43,20 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public UserBean get(Integer id) {
 		return em.find(UserBean.class, id);
+	}
+
+	@Override
+	public UserBean searchUser(String login, String password) {
+		UserBean user = null;
+		Query requete = em.createQuery("select u from UserBean u where u.login = :login and u.password = :password");
+		requete.setParameter("login", login);
+		requete.setParameter("password", password);
+		List<Object> listeResult = requete.getResultList();
+		if (listeResult.size() > 0) {
+			user = (UserBean) listeResult.get(0);
+		}
+
+		return user;
 	}
 
 }

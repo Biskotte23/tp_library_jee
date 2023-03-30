@@ -8,5 +8,5 @@ import fr.univtours.polytech.library.model.UserBean;
  *
  */
 public interface UserBusinessLocal extends BusinessLocalFactory<UserBean> {
-
+	public UserBean searchUser(String login, String password);
 }

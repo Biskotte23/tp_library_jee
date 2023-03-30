@@ -42,4 +42,9 @@ public class UserBusinessImpl implements UserBusinessLocal, UserBusinessRemote {
 	public UserBean get(Integer id) {
 		return dao.get(id);
 	}
+	
+	@Override
+	public UserBean searchUser(String login, String password) {
+		return dao.searchUser(login, password);
+	}
 }
