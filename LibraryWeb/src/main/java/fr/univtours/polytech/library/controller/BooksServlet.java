@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.omg.CosNaming.IstringHelper;
+
 import fr.univtours.polytech.library.business.factory.local.BookBusinessLocal;
 import fr.univtours.polytech.library.business.factory.local.BookTypeBusinessLocal;
 import fr.univtours.polytech.library.model.BookBean;
@@ -32,8 +34,33 @@ public class BooksServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		List<BookBean> books = this.businessBook.getAll();
+		List<BookBean> books;
 		List<BookTypeBean> bookTypes = this.businessBookType.getAll();
+		
+		String searchString = "";
+		int bookTypeID = -1;
+		boolean available = false;
+		
+		if (request.getParameter("search") != null) {
+			searchString = request.getParameter("search");
+			request.setAttribute("FILTER_SEARCH", searchString);
+		}
+		
+		if (request.getParameter("type") != null) {
+			bookTypeID = Integer.valueOf(request.getParameter("type"));
+			request.setAttribute("FILTER_TYPE", bookTypeID);
+		}
+		
+		if (request.getParameter("availability") != null) {
+			available = request.getParameter("availability").compareTo("on") == 0 ? true : false;
+			request.setAttribute("FILTER_AVAILABILITY", available);
+		} 
+		
+		if (searchString.compareTo("") == 0 && bookTypeID == -1 && !available) {
+			books = this.businessBook.getAll();
+		} else {
+			books = this.businessBook.getFilteredBooks(searchString, bookTypeID, available);
+		}
 
 		request.setAttribute("BOOKS", books);
 		request.setAttribute("BOOK_TYPES", bookTypes);

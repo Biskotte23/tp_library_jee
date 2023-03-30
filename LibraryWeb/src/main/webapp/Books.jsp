@@ -18,22 +18,34 @@
 	<form method="get" action="books">
 		<div class="field">
 			<label for="search">Rechercher</label>
-			<input type="text" id="search" name="search" placeholder="Titre, auteur, ..."> 
+			<input type="text" id="search" name="search" placeholder="Titre, auteur, ..." 
+				<c:if test="${not empty requestScope.FILTER_SEARCH}">
+				   value="${requestScope.FILTER_SEARCH}"
+				</c:if>
+			> 
 		</div>
 		
 		<div class="field">
-			<label for="gender">Genre</label>
-			<select name="gender" id="gender">
-				<option value="">Tous les genres</option>
+			<label for="type">Genre</label>
+			<select name="type" id="type">
+				<option value="-1">Tous les genres</option>
 				<c:forEach items="${requestScope.BOOK_TYPES}" var="type">
-					<option value="${type.id}">${type.name}</option>
+					<option value="${type.id}" 
+						<c:if test="${(not empty requestScope.FILTER_TYPE) && (requestScope.FILTER_TYPE == type.id)}">
+						   selected="selected"
+						</c:if>
+					>${type.name}</option>
 				</c:forEach>
 			</select> 
 		</div>
 		
 		<div class="field">
 			<label for="availability">Livres disponibles</label> 
-			<input type="checkbox" id="availability" name="availability"> 
+			<input type="checkbox" id="availability" name="availability"
+				<c:if test="${(not empty requestScope.FILTER_AVAILABILITY) && (requestScope.FILTER_AVAILABILITY)}">
+				   checked
+				</c:if>
+			> 
 		</div>
 		
 		<input type="submit" value="Filtrer">
