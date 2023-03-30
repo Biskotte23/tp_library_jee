@@ -43,6 +43,9 @@ public class BookBean implements Serializable {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private BookTypeBean bookType;
 	
+	@ManyToOne(cascade = CascadeType.ALL)
+	private AuthorBean author;
+	
 	/**
 	 * Get the ID of the book.
 	 * @return ID of the book.
@@ -119,6 +122,20 @@ public class BookBean implements Serializable {
 	 */
 	public void setBookType(BookTypeBean bookType) {
 		this.bookType = bookType;
+	}
+
+	/**
+	 * @return the author
+	 */
+	public AuthorBean getAuthor() {
+		return author;
+	}
+
+	/**
+	 * @param author the author to set
+	 */
+	public void setAuthor(AuthorBean author) {
+		this.author = author;
 	}
 	
 	

@@ -12,22 +12,23 @@ import fr.univtours.polytech.library.model.BookTypeBean;
 
 /**
  * Book type DAO implementation.
+ * 
  * @author Jules
  *
  */
 @Stateless
 public class BookTypeDAOImpl implements BookTypeDAO {
 	@PersistenceContext(unitName = "LibraryEJB")
-    private EntityManager em;
-	
+	private EntityManager em;
+
 	@Override
 	public void insert(BookTypeBean bookType) {
-		 em.persist(bookType);
+		em.persist(bookType);
 	}
 
 	@Override
 	public void update(BookTypeBean bookType) {
-		// TODO Auto-generated method stub
+		em.merge(bookType);
 	}
 
 	@Override

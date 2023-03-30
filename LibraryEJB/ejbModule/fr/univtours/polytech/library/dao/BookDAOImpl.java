@@ -23,13 +23,13 @@ public class BookDAOImpl implements BookDAO {
 
 	@Override
 	public void insert(BookBean book) {
-		 em.persist(book);
+		em.persist(book);
 
 	}
 
 	@Override
-	public void update(BookBean object) {
-		// TODO Auto-generated method stub
+	public void update(BookBean book) {
+		em.merge(book);
 
 	}
 

@@ -1,11 +1,14 @@
 package fr.univtours.polytech.library.model;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -31,6 +34,9 @@ public class AuthorBean implements Serializable {
 	 * Last name of the author.
 	 */
 	private String lastName;
+	
+	@OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
+	private List<BookBean> books;
 	
 	/**
 	 * Get the ID of the author.
@@ -79,4 +85,20 @@ public class AuthorBean implements Serializable {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
+	/**
+	 * @return the books
+	 */
+	public List<BookBean> getBooks() {
+		return books;
+	}
+
+	/**
+	 * @param books the books to set
+	 */
+	public void setBooks(List<BookBean> books) {
+		this.books = books;
+	}
+	
+	
 }

@@ -28,8 +28,8 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public void update(UserBean object) {
-		// TODO Auto-generated method stub
+	public void update(UserBean user) {
+		em.merge(user);
 
 	}
 

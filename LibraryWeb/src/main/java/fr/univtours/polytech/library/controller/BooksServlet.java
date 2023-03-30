@@ -47,7 +47,7 @@ public class BooksServlet extends HttpServlet {
 		//List<AuthorBean> author = this.businessAuthor.getAll();
 		//List<BorrowBean> borrow = this.businessBorrow.getAll();
 
-		//request.setAttribute("BOOK_TYPES", bookTypes);
+		request.setAttribute("BOOK", book);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("Books.jsp");
 		dispatcher.forward(request, response);

@@ -12,24 +12,25 @@ import fr.univtours.polytech.library.model.BorrowBean;
 
 /**
  * Borrow DAO implementation.
+ * 
  * @author Jules
  *
  */
 @Stateless
 public class BorrowDAOImpl implements BorrowDAO {
 	@PersistenceContext(unitName = "LibraryEJB")
-    private EntityManager em;
-	
+	private EntityManager em;
+
 	@Override
 	public void insert(BorrowBean borrow) {
 		em.persist(borrow);
-		
+
 	}
 
 	@Override
-	public void update(BorrowBean object) {
-		// TODO Auto-generated method stub
-		
+	public void update(BorrowBean borrow) {
+		em.merge(borrow);
+
 	}
 
 	@Override

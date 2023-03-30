@@ -27,9 +27,8 @@ public class AuthorDAOImpl implements AuthorDAO {
 	}
 
 	@Override
-	public void update(AuthorBean object) {
-		// TODO Auto-generated method stub
-		
+	public void update(AuthorBean author) {
+		em.merge(author);	
 	}
 
 	@Override
