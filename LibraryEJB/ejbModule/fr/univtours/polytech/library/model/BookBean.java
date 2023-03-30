@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -41,12 +42,18 @@ public class BookBean implements Serializable {
 	/**
 	 * Cover image of the book.
 	 */
-	// @LOB
+	@Lob
 	private byte[] cover;
 	
+	/**
+	 * Type of the book.
+	 */
 	@ManyToOne(cascade = CascadeType.ALL)
 	private BookTypeBean bookType;
 	
+	/**
+	 * Author of the book.
+	 */
 	@ManyToOne(cascade = CascadeType.ALL)
 	private AuthorBean author;
 	

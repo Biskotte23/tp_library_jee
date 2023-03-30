@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.univtours.polytech.library.business.factory.local.BookBusinessLocal;
+import fr.univtours.polytech.library.business.factory.local.BookTypeBusinessLocal;
 import fr.univtours.polytech.library.model.BookBean;
+import fr.univtours.polytech.library.model.BookTypeBean;
 
 /**
  * Servlet implementation class NotesServlet
@@ -23,13 +25,18 @@ public class BooksServlet extends HttpServlet {
 
 	@EJB
 	private BookBusinessLocal businessBook;
+	
+	@EJB
+	private BookTypeBusinessLocal businessBookType;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		List<BookBean> books = this.businessBook.getAll();
+		List<BookTypeBean> bookTypes = this.businessBookType.getAll();
 
 		request.setAttribute("BOOKS", books);
+		request.setAttribute("BOOK_TYPES", bookTypes);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("Books.jsp");
 		dispatcher.forward(request, response);

@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 /**
  * Author of a book.
- * @author Jules
+ * @author Jules.
  *
  */
 @Entity
@@ -21,6 +21,9 @@ import javax.persistence.Table;
 public class AuthorBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * ID of the author.
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -35,6 +38,9 @@ public class AuthorBean implements Serializable {
 	 */
 	private String lastName;
 	
+	/**
+	 * Books written by the author.
+	 */
 	@OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
 	private List<BookBean> books;
 	
@@ -87,18 +93,26 @@ public class AuthorBean implements Serializable {
 	}
 
 	/**
-	 * @return the books
+	 * Get books written by the author.
+	 * @return Books written by the author.
 	 */
 	public List<BookBean> getBooks() {
 		return books;
 	}
 
 	/**
-	 * @param books the books to set
+	 * Set books written by the author.
+	 * @param books New books written by the author.
 	 */
 	public void setBooks(List<BookBean> books) {
 		this.books = books;
 	}
 	
-	
+	/**
+	 * Get a String representation of the author.
+	 * @return String representation of the author.
+	 */
+	public String toString() {
+		return firstName + " " + lastName.toUpperCase();
+	}
 }
