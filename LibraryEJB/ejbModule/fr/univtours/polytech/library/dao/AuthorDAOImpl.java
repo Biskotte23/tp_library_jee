@@ -33,7 +33,7 @@ public class AuthorDAOImpl implements AuthorDAO {
 
 	@Override
 	public ArrayList<AuthorBean> getAll() {
-		Query requete = em.createQuery("select b from AuthorBean b");
+		Query requete = em.createQuery("select au from AuthorBean au");
 		return (ArrayList<AuthorBean>) requete.getResultList();
 	}
 
@@ -41,5 +41,4 @@ public class AuthorDAOImpl implements AuthorDAO {
 	public AuthorBean get(Integer id) {
 		return em.find(AuthorBean.class, id);
 	}
-
 }

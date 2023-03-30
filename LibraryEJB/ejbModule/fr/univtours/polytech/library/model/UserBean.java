@@ -1,13 +1,14 @@
 package fr.univtours.polytech.library.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -44,8 +45,8 @@ public class UserBean implements Serializable {
 	 */
 	private String password;
 	
-	@OneToOne(mappedBy ="user" , cascade = CascadeType.ALL)
-	private BorrowBean borrow;
+	@OneToMany(mappedBy ="user" , cascade = CascadeType.ALL)
+	private List<BorrowBean> borrows;
 	
 	/**
 	 * Status of the user.

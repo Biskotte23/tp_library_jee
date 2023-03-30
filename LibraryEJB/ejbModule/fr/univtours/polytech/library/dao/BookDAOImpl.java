@@ -43,5 +43,17 @@ public class BookDAOImpl implements BookDAO {
 	public BookBean get(Integer id) {
 		return em.find(BookBean.class, id);
 	}
+	
+	@Override
+	public ArrayList<BookBean> getAllFiltered(String searchString, int bookTypeId, boolean available) {
+		Query requete = em.createQuery("select b from BookBean b where b.available = :available "
+				+ "and upper(CONCAT(b.title, b.author.firstName, b.author.lastName)) LIKE \"%:searchString%\" "
+				+ "and b.bookType.id = :bookTypeId");
+		requete.setParameter("searchString", searchString);
+		requete.setParameter("available", available);
+		requete.setParameter("bookTypeId", bookTypeId); 
+		return (ArrayList<BookBean>) requete.getResultList();
+	}
+	
 
 }

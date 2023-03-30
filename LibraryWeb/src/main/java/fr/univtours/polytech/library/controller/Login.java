@@ -1,7 +1,6 @@
 package fr.univtours.polytech.library.controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -11,27 +10,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.univtours.polytech.library.business.factory.local.BookBusinessLocal;
-import fr.univtours.polytech.library.model.BookBean;
+import fr.univtours.polytech.library.business.factory.local.UserBusinessLocal;
 
 /**
- * Servlet implementation class NotesServlet
+ * Servlet pour la connexion
  */
-@WebServlet(name = "books", urlPatterns = { "/books" })
-public class BooksServlet extends HttpServlet {
+@WebServlet(name = "login", urlPatterns = { "/login" })
+public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
 	@EJB
-	private BookBusinessLocal businessBook;
+	private UserBusinessLocal businessUser;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		List<BookBean> book = this.businessBook.getAll();
 
-		request.setAttribute("BOOK", book);
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("Books.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("Login.jsp");
 		dispatcher.forward(request, response);
 	}
 }

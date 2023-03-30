@@ -42,4 +42,8 @@ public class BookBusinessImpl implements BookBusinessLocal, BookBusinessRemote {
 	public BookBean get(Integer id) {
 		return dao.get(id);
 	}
+	
+	public ArrayList<BookBean> getFilteredBooks(String searchString, int bookTypeId, boolean available) {
+		return dao.getAllFiltered(searchString, bookTypeId, available);
+	}
 }
