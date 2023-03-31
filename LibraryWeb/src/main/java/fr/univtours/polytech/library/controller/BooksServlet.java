@@ -11,8 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.omg.CosNaming.IstringHelper;
-
 import fr.univtours.polytech.library.business.factory.local.BookBusinessLocal;
 import fr.univtours.polytech.library.business.factory.local.BookTypeBusinessLocal;
 import fr.univtours.polytech.library.model.BookBean;

@@ -18,6 +18,7 @@ import fr.univtours.polytech.library.business.factory.local.BorrowBusinessLocal;
 import fr.univtours.polytech.library.model.BookBean;
 import fr.univtours.polytech.library.model.BorrowBean;
 import fr.univtours.polytech.library.model.UserBean;
+import fr.univtours.polytech.library.model.UserStatus;
 
 @WebServlet(name = "admin", urlPatterns = { "/admin" })
 public class AdminServlet extends HttpServlet {
@@ -34,11 +35,12 @@ public class AdminServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		UserBean userConnected = (UserBean) session.getAttribute("UserConected");
-		/*
-		 * if (userConnected == null || userConnected.getStatus() != UserStatus.admin) {
-		 * RequestDispatcher dispatcher = request.getRequestDispatcher("Books.jsp");
-		 * dispatcher.forward(request, response); }
-		 */
+
+		if (userConnected == null || userConnected.getStatus() != UserStatus.admin) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("Books.jsp");
+			dispatcher.forward(request, response);
+		}
+
 		List<BorrowBean> booksBorrowed = businessBorrow.getAllNotReturnedBorrow();
 		request.setAttribute("BORROWS", booksBorrowed);
 
