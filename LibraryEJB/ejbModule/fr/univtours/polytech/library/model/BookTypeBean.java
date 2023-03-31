@@ -32,7 +32,7 @@ public class BookTypeBean implements Serializable {
 	 */
 	private String name;
 	
-	@OneToMany(mappedBy = "bookType", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "bookType")
 	private List<BookBean> books;
 	
 	/**

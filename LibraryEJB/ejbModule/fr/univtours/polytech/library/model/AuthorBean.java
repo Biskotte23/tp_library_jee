@@ -35,7 +35,7 @@ public class AuthorBean implements Serializable {
 	 */
 	private String lastName;
 	
-	@OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "author")
 	private List<BookBean> books;
 	
 	/**

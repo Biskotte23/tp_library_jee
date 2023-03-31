@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -30,16 +32,22 @@ public class BorrowBean implements Serializable {
 	 * Date of the borrow.
 	 */
 	private LocalDateTime date;
+	
+	/**
+	 * Date of the borrow.
+	 */
+	private LocalDateTime renderingDate;
 
 	/**
 	 * Borrowed book.
 	 */
+	@OneToOne()
 	private BookBean book;
 
 	/**
 	 * Borrower user.
 	 */
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne()
 	private UserBean user;
 
 	/**
@@ -113,4 +121,20 @@ public class BorrowBean implements Serializable {
 	public void setUser(UserBean user) {
 		this.user = user;
 	}
+
+	/**
+	 * @return the renderingDate
+	 */
+	public LocalDateTime getRenderingDate() {
+		return renderingDate;
+	}
+
+	/**
+	 * @param renderingDate the renderingDate to set
+	 */
+	public void setRenderingDate(LocalDateTime renderingDate) {
+		this.renderingDate = renderingDate;
+	}
+	
+	
 }

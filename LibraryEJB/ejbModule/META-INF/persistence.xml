@@ -8,7 +8,7 @@
 		<class>fr.univtours.polytech.library.model.BorrowBean</class>
 		<class>fr.univtours.polytech.library.model.UserBean</class>
 		<properties>
-			<property name="javax.persistence.schema-generation.database.action" value="none"/>
+			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
 		</properties>
 	</persistence-unit>
 </persistence>

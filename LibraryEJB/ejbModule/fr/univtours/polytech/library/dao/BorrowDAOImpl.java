@@ -30,7 +30,6 @@ public class BorrowDAOImpl implements BorrowDAO {
 	@Override
 	public void update(BorrowBean borrow) {
 		em.merge(borrow);
-
 	}
 
 	@Override
@@ -43,5 +42,10 @@ public class BorrowDAOImpl implements BorrowDAO {
 	public BorrowBean get(Integer id) {
 		return em.find(BorrowBean.class, id);
 	}
-
+	
+	@Override
+	public ArrayList<BorrowBean> getAllNotReturned() {
+		Query requete = em.createQuery("select b from BorrowBean b where b.renderingDate = NULL");
+		return (ArrayList<BorrowBean>) requete.getResultList();
+	}
 }

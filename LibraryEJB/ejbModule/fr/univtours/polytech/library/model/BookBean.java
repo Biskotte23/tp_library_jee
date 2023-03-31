@@ -40,11 +40,14 @@ public class BookBean implements Serializable {
 	 */
 	private byte[] cover;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne()
 	private BookTypeBean bookType;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne()
 	private AuthorBean author;
+	
+	@OneToOne(mappedBy = "book", cascade = CascadeType.ALL)
+	private BorrowBean borrow;
 	
 	/**
 	 * Get the ID of the book.

@@ -54,6 +54,4 @@ public class BookDAOImpl implements BookDAO {
 		requete.setParameter("bookTypeId", bookTypeId); 
 		return (ArrayList<BookBean>) requete.getResultList();
 	}
-	
-
 }
