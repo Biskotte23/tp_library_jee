@@ -15,61 +15,68 @@
 </head>
 <body>
 	<h1>Catalogue de livres</h1>
-	<form>
+	<form method="get" action="books">
 		<div class="field">
 			<label for="search">Rechercher</label>
-			<input type="text" id="search" name="search" placeholder="Titre, auteur, ..."> 
+			<input type="text" id="search" name="search" placeholder="Titre, auteur, ..." 
+				<c:if test="${not empty requestScope.FILTER_SEARCH}">
+				   value="${requestScope.FILTER_SEARCH}"
+				</c:if>
+			> 
 		</div>
 		
 		<div class="field">
-			<label for="gender">Genre</label>
-			<select name="gender" id="gender">
-				<option value="">Tous les genres</option>
+			<label for="type">Genre</label>
+			<select name="type" id="type">
+				<option value="-1">Tous les genres</option>
+				<c:forEach items="${requestScope.BOOK_TYPES}" var="type">
+					<option value="${type.id}" 
+						<c:if test="${(not empty requestScope.FILTER_TYPE) && (requestScope.FILTER_TYPE == type.id)}">
+						   selected="selected"
+						</c:if>
+					>${type.name}</option>
+				</c:forEach>
 			</select> 
 		</div>
 		
 		<div class="field">
-			<label>Livres disponibles</label> 
-			<input type="checkbox"> 
+			<label for="availability">Livres disponibles</label> 
+			<input type="checkbox" id="availability" name="availability"
+				<c:if test="${(not empty requestScope.FILTER_AVAILABILITY) && (requestScope.FILTER_AVAILABILITY)}">
+				   checked
+				</c:if>
+			> 
 		</div>
 		
-		<input type="submit" value="Filtrer">
+		<button class="button">Filtrer</button>
 	</form>
 	<ul class="books">
-		<li class="book">
-			<a href="#">
-				<div class="cover">
-					<img src="https://images-na.ssl-images-amazon.com/images/I/71EVW3NiEfL.jpg" alt="Livre" />
-				</div>
-				<div class="info">
-					<header>
-						<h3>The ONE Thing</h3>
-						<p class="author">Gary Keller</p>
-					</header>
-					<footer>
-						<p class="gender">Développement personnel</p>
-						<p class="availability">Disponible <i class="fa-solid fa-circle-check available"></i></p>
-					</footer>
-				</div>
-			</a>
-		</li>
-		<li class="book">
-			<a href="#">
-				<div class="cover">
-					<img src="https://images-na.ssl-images-amazon.com/images/I/71EVW3NiEfL.jpg" alt="Livre" />
-				</div>
-				<div class="info">
-					<header>
-						<h3>The ONE Thing: passez à l'essentiel</h3>
-						<p class="author">Gary Keller, Jay Papasan</p>
-					</header>
-					<footer>
-						<p class="gender">Développement personnel</p>
-						<p class="availability">Indisponible <i class="fa-solid fa-circle-xmark unavailable"></i></p>
-					</footer>
-				</div>
-			</a>
-		</li>
+		<c:forEach items="${requestScope.BOOKS}" var="book">
+			<li class="book">
+				<a href="#">
+					<div class="cover">
+						<img src="https://images-na.ssl-images-amazon.com/images/I/71EVW3NiEfL.jpg" alt="Livre" />
+					</div>
+					<div class="info">
+						<header>
+							<h3>${book.title}</h3>
+							<p class="author">${book.author}</p>
+						</header>
+						<footer>
+							<p class="gender">${book.bookType.name}</p>
+							<p class="availability">
+								<c:if test="${book.available}">
+								    Disponible <i class="fa-solid fa-circle-check available"></i>
+								</c:if>
+								<c:if test="${not book.available}">
+								    Indisponible <i class="fa-solid fa-circle-xmark unavailable"></i>
+								</c:if>
+							</p>
+						</footer>
+					</div>
+				</a>
+			</li>
+		</c:forEach>
 	</ul>
 </body>
 </html>

@@ -44,12 +44,15 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		UserBean user = businessUser.searchUser(login, password);
-
-		if (user != null && session.getAttribute("UserConected") == null) {
-			session.setAttribute("UserConected", user);
-		}
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("Books.jsp");
-		dispatcher.forward(request, response);
+		if (user != null) {
+			session.setAttribute("UserConected", user);
+			response.sendRedirect("books");
+		} else {
+			String error = "Identifiant et/ou mot de passe icorrect(s)";
+			
+			request.setAttribute("ERROR", error);
+			request.getRequestDispatcher("Login.jsp").forward(request, response);
+		}
 	}
 }

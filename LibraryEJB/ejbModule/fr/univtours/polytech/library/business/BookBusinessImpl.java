@@ -43,7 +43,15 @@ public class BookBusinessImpl implements BookBusinessLocal, BookBusinessRemote {
 		return dao.get(id);
 	}
 	
+	/**
+	 * Get filtered books.
+	 * @param searchString Search string.
+	 * @param bookTypeId ID of the book type.
+	 * @param available Whether the books must be available or not.
+	 * @return Filtered books.
+	 */
+	@Override
 	public ArrayList<BookBean> getFilteredBooks(String searchString, int bookTypeId, boolean available) {
-		return dao.getAllFiltered(searchString, bookTypeId, available);
+		return dao.getAllWithFilters(searchString, bookTypeId, available);
 	}
 }

@@ -2,6 +2,8 @@
 	--color-white: #fff;
 	--color-background: #f5f5f5;
 	--color-primary: rgba(9, 132, 227, 1.0);
+	--color-red: #d63031;
+	--color-green: #00b894;
 	--font-family: 'Open Sans', sans-serif;
 	--box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;;
 }
@@ -44,4 +46,28 @@ img {
 a {
 	color: black;
 	text-decoration: none;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.button {
+	padding: 0.5rem 1rem;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 1.3rem;
+	font-weight: 500;
+	cursor: pointer;
+	color: var(--color-white);
+	background-color: var(--color-primary);
+	border: 1px solid var(--color-primary);
+	outline: none;
+	transition: 0.3s;
+}
+
+.button:hover {
+	color: var(--color-primary);
+	background-color: var(--color-white);
+	transition: 0.3s;
 }

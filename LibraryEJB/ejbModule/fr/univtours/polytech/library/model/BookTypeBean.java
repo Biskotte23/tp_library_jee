@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 /**
  * Type of a book.
- * @author Jules
+ * @author Jules.
  *
  */
 @Entity
@@ -23,6 +23,9 @@ import javax.persistence.Table;
 public class BookTypeBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * ID of the book type.
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -32,6 +35,9 @@ public class BookTypeBean implements Serializable {
 	 */
 	private String name;
 	
+		/**
+	 * Books of the type.
+	 */
 	@OneToMany(mappedBy = "bookType")
 	private List<BookBean> books;
 	
@@ -68,14 +74,16 @@ public class BookTypeBean implements Serializable {
 	}
 
 	/**
-	 * @return the books
+	 * Get the books of the type.
+	 * @return Books of the type.
 	 */
 	public List<BookBean> getBooks() {
 		return books;
 	}
 
 	/**
-	 * @param books the books to set
+	 * Set the books of the type.
+	 * @param books New books of the type.
 	 */
 	public void setBooks(List<BookBean> books) {
 		this.books = books;

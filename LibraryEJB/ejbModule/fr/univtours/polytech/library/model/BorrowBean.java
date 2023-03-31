@@ -15,8 +15,12 @@ import javax.persistence.Table;
 
 /**
  * Borrow of a book by a user.
+<<<<<<< HEAD
  * 
  * @user Jules
+=======
+ * @user Jules.
+>>>>>>> 67cc81b (Refactorisation of Beans docstring)
  *
  */
 @Entity
@@ -24,6 +28,9 @@ import javax.persistence.Table;
 public class BorrowBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * ID of the borrow.
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
