@@ -48,7 +48,7 @@
 			> 
 		</div>
 		
-		<input type="submit" value="Filtrer">
+		<button class="button">Filtrer</button>
 	</form>
 	<ul class="books">
 		<c:forEach items="${requestScope.BOOKS}" var="book">

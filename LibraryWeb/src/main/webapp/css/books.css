@@ -28,6 +28,7 @@ form .field label {
 	font-size: 1.4rem;
 	text-transform: uppercase;
 	font-weight: 500;
+	white-space: nowrap;
 }
 
 form input,
@@ -58,14 +59,8 @@ form input[type="checkbox"] {
 	height: var(--size);
 }
 
-form input[type="submit"] {
-	text-transform: uppercase;
-	letter-spacing: 0.5px;
-	font-weight: 700;
-	cursor: pointer;
-	color: var(--color-white);
-	background-color: var(--color-primary);
-	box-shadow: var(--box-shadow);
+form button {
+	margin: 0;
 }
 
 ul.books {
@@ -161,9 +156,9 @@ ul.books li.book a .info footer .availability i {
 }
 
 ul.books li.book a .info footer .availability i.available {
-	color: #00b894;
+	color: var(--color-green);
 }
 
 ul.books li.book a .info footer .availability i.unavailable {
-	color: #d63031;
+	color: var(--color-red);
 }
