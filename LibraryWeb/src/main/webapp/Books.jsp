@@ -65,7 +65,7 @@
 			<li class="book">
 				<a href="borrow?bookID=${book.id}">
 					<div class="cover">
-						<img src="https://images-na.ssl-images-amazon.com/images/I/71EVW3NiEfL.jpg" alt="Livre" />
+						<img src="https://i.pinimg.com/originals/8d/13/b1/8d13b15006817344608393deb8b3a9a2.jpg" alt="Livre" />
 					</div>
 					<div class="info">
 						<header>
