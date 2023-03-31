@@ -36,7 +36,9 @@ public class BooksServlet extends HttpServlet {
 		List<BookBean> books;
 		List<BookTypeBean> bookTypes = this.businessBookType.getAll();
 		HttpSession session = request.getSession();
-		
+		if(request.getParameter("logout") != null){
+			session.setAttribute("UserConected", null);
+		}
 		if (session.getAttribute("UserConected") != null) {
 			request.setAttribute("USER", session.getAttribute("UserConected"));
 		}

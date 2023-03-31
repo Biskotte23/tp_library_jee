@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import fr.univtours.polytech.library.business.factory.local.UserBusinessLocal;
 import fr.univtours.polytech.library.model.UserBean;
+import fr.univtours.polytech.library.model.UserStatus;
 
 /**
  * Servlet pour la connexion
@@ -47,7 +48,12 @@ public class LoginServlet extends HttpServlet {
 		
 		if (user != null) {
 			session.setAttribute("UserConected", user);
-			response.sendRedirect("books");
+			if(user.getStatus() == UserStatus.basic) {
+				response.sendRedirect("books");
+			}else {
+				response.sendRedirect("admin");
+			}
+
 		} else {
 			String error = "Identifiant et/ou mot de passe icorrect(s)";
 			
