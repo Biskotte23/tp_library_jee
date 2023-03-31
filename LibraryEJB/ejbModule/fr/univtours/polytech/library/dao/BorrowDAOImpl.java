@@ -50,8 +50,8 @@ public class BorrowDAOImpl implements BorrowDAO {
 	}
 
 	@Override
-	public ArrayList<BorrowBean> getBorrowsOfuser(int userID) {
-		Query query = em.createQuery("select b from BorrowBean b where b.user.id = :userID");
+	public ArrayList<BorrowBean> getBorrowsNotRetunedOfuser(int userID) {
+		Query query = em.createQuery("select b from BorrowBean b where b.user.id = :userID and b.renderingDate = NULL");
 		query.setParameter("userID", userID);
 		return (ArrayList<BorrowBean>) query.getResultList();
 	}

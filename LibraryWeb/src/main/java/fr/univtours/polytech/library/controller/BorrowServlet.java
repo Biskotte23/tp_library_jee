@@ -41,7 +41,7 @@ public class BorrowServlet extends HttpServlet {
 			int bookID = Integer.valueOf(request.getParameter("bookID"));
 
 			if (businessBook.isBookAvailable(bookID)) {
-				ArrayList<BorrowBean> borrows = businessBorrow.getBorrowsOfuser(user.getId());
+				ArrayList<BorrowBean> borrows = businessBorrow.getBorrowsNotRetunedOfuser(user.getId());
 
 				if (borrows != null && borrows.size() < 5) {
 					BorrowBean borrow = new BorrowBean();

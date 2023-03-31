@@ -2,6 +2,7 @@ package fr.univtours.polytech.library.model;
 
 import java.io.Serializable;
 import java.util.Base64;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -10,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -62,8 +63,8 @@ public class BookBean implements Serializable {
 	/**
 	 * borrow connection
 	 */
-	@OneToOne(mappedBy = "book", cascade = CascadeType.ALL)
-	private BorrowBean borrow;
+	@OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
+	private List<BorrowBean> borrows;
 
 	/**
 	 * Get the ID of the book.

@@ -18,5 +18,5 @@ public interface BorrowBusinessRemote extends BusinessRemoteFactory<BorrowBean> 
 	 * @param userID ID of the user.
 	 * @return Borrows made by a user.
 	 */
-	public ArrayList<BorrowBean> getBorrowsOfuser(int userID);
+	public ArrayList<BorrowBean> getBorrowsNotRetunedOfuser(int userID);
 }

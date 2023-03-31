@@ -49,7 +49,7 @@ public class BorrowBusinessImpl implements BorrowBusinessLocal, BorrowBusinessRe
 	}
 
 	@Override
-	public ArrayList<BorrowBean> getBorrowsOfuser(int userID) {
-		return dao.getBorrowsOfuser(userID);
+	public ArrayList<BorrowBean> getBorrowsNotRetunedOfuser(int userID) {
+		return dao.getBorrowsNotRetunedOfuser(userID);
 	}
 }

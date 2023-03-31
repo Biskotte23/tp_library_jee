@@ -45,7 +45,7 @@ public class BorrowBean implements Serializable {
 	/**
 	 * Borrowed book.
 	 */
-	@OneToOne()
+	@ManyToOne()
 	private BookBean book;
 
 	/**
