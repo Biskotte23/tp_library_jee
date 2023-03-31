@@ -48,4 +48,8 @@ public class BorrowBusinessImpl implements BorrowBusinessLocal, BorrowBusinessRe
 		return dao.getAllNotReturned();
 	}
 
+	@Override
+	public ArrayList<BorrowBean> getBorrowsOfuser(int userID) {
+		return dao.getBorrowsOfuser(userID);
+	}
 }

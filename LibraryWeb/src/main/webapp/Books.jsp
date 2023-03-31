@@ -14,6 +14,14 @@
 <title>Bibliothèque</title>
 </head>
 <body>
+	<header>
+		<c:if test="${empty requestScope.USER}">
+		   <a href="login" class="button">Connexion</a>
+		</c:if>
+		<c:if test="${not empty requestScope.USER}">
+		   <p class="connected"><i class="fa-solid fa-user"></i> ${requestScope.USER}</p>
+		</c:if>
+	</header>
 	<h1>Catalogue de livres</h1>
 	<form method="get" action="books">
 		<div class="field">
@@ -53,7 +61,7 @@
 	<ul class="books">
 		<c:forEach items="${requestScope.BOOKS}" var="book">
 			<li class="book">
-				<a href="#">
+				<a href="borrow?bookID=${book.id}">
 					<div class="cover">
 						<img src="https://images-na.ssl-images-amazon.com/images/I/71EVW3NiEfL.jpg" alt="Livre" />
 					</div>

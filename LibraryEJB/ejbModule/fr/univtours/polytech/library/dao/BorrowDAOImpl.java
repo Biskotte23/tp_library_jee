@@ -42,10 +42,17 @@ public class BorrowDAOImpl implements BorrowDAO {
 	public BorrowBean get(Integer id) {
 		return em.find(BorrowBean.class, id);
 	}
-	
+
 	@Override
 	public ArrayList<BorrowBean> getAllNotReturned() {
 		Query requete = em.createQuery("select b from BorrowBean b where b.renderingDate = NULL");
 		return (ArrayList<BorrowBean>) requete.getResultList();
+	}
+
+	@Override
+	public ArrayList<BorrowBean> getBorrowsOfuser(int userID) {
+		Query query = em.createQuery("select b from BorrowBean b where b.user.id = :userID");
+		query.setParameter("userID", userID);
+		return (ArrayList<BorrowBean>) query.getResultList();
 	}
 }
