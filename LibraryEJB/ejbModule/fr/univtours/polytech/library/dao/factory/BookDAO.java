@@ -13,4 +13,11 @@ public interface BookDAO extends DAOFactory<BookBean> {
 	 * @return Filtered books.
 	 */
 	public ArrayList<BookBean> getAllWithFilters(String searchString, int bookTypeId, boolean available);
+	
+	/**
+	 * Whether a book is available for borrowing or not.
+	 * @param bookID ID of the book.
+	 * @return Availability of the book.
+	 */
+	public boolean isBookAvailable(int bookID);
 }

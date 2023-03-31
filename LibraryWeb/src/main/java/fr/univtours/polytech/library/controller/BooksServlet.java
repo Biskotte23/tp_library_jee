@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fr.univtours.polytech.library.business.factory.local.BookBusinessLocal;
 import fr.univtours.polytech.library.business.factory.local.BookTypeBusinessLocal;
@@ -34,6 +35,11 @@ public class BooksServlet extends HttpServlet {
 			throws ServletException, IOException {
 		List<BookBean> books;
 		List<BookTypeBean> bookTypes = this.businessBookType.getAll();
+		HttpSession session = request.getSession();
+		
+		if (session.getAttribute("UserConected") != null) {
+			request.setAttribute("USER", session.getAttribute("UserConected"));
+		}
 		
 		String searchString = "";
 		int bookTypeID = -1;

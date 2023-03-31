@@ -94,4 +94,11 @@ public class BookDAOImpl implements BookDAO {
 		
 		return (ArrayList<BookBean>) request.getResultList();
 	}
+
+	@Override
+	public boolean isBookAvailable(int bookID) {
+		BookBean book = get(bookID);
+		
+		return book.isAvailable();
+	}
 }
