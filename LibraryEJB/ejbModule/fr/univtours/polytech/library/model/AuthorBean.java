@@ -13,6 +13,7 @@ import javax.persistence.Table;
 
 /**
  * Author of a book.
+ * 
  * @author Jules.
  *
  */
@@ -27,22 +28,23 @@ public class AuthorBean implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	/**
 	 * First name of the author.
 	 */
 	private String firstName;
-	
+
 	/**
 	 * Last name of the author.
 	 */
 	private String lastName;
-	
+
 	@OneToMany(mappedBy = "author")
 	private List<BookBean> books;
-	
+
 	/**
 	 * Get the ID of the author.
+	 * 
 	 * @return ID of the author.
 	 */
 	public int getId() {
@@ -51,6 +53,7 @@ public class AuthorBean implements Serializable {
 
 	/**
 	 * Set the ID of the auhtor.
+	 * 
 	 * @param id New ID of the author.
 	 */
 	public void setId(int id) {
@@ -59,6 +62,7 @@ public class AuthorBean implements Serializable {
 
 	/**
 	 * Get the first name of the author.
+	 * 
 	 * @return First name of the author.
 	 */
 	public String getFirstName() {
@@ -67,6 +71,7 @@ public class AuthorBean implements Serializable {
 
 	/**
 	 * Set the first name of the author.
+	 * 
 	 * @param firstName New first name of the author.
 	 */
 	public void setFirstName(String firstName) {
@@ -75,6 +80,7 @@ public class AuthorBean implements Serializable {
 
 	/**
 	 * Get the last name of the author.
+	 * 
 	 * @return Last name of the author.
 	 */
 	public String getLastName() {
@@ -83,7 +89,8 @@ public class AuthorBean implements Serializable {
 
 	/**
 	 * Set the last name of the author.
-	 * @param lastName New last name of the author. 
+	 * 
+	 * @param lastName New last name of the author.
 	 */
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
@@ -91,6 +98,7 @@ public class AuthorBean implements Serializable {
 
 	/**
 	 * Get books written by the author.
+	 * 
 	 * @return Books written by the author.
 	 */
 	public List<BookBean> getBooks() {
@@ -99,14 +107,16 @@ public class AuthorBean implements Serializable {
 
 	/**
 	 * Set books written by the author.
+	 * 
 	 * @param books New books written by the author.
 	 */
 	public void setBooks(List<BookBean> books) {
 		this.books = books;
 	}
-	
+
 	/**
 	 * Get a String representation of the author.
+	 * 
 	 * @return String representation of the author.
 	 */
 	public String toString() {

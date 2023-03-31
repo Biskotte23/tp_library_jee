@@ -10,10 +10,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
  * Book.
+ * 
  * @author Jules.
  *
  */
@@ -23,45 +25,49 @@ public class BookBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * ID of the user. 
+	 * ID of the user.
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	/**
 	 * Title of the book.
 	 */
 	private String title;
-	
+
 	/**
-	 * Whether the book is available for borrowing. 
+	 * Whether the book is available for borrowing.
 	 */
 	private boolean available;
-	
+
 	/**
 	 * Cover image of the book.
 	 */
 	@Lob
 	private byte[] cover;
 
-		/**
+	/**
 	 * Type of the book.
 	 */
 	@ManyToOne()
 	private BookTypeBean bookType;
-	
-		/**
+
+	/**
 	 * Author of the book.
 	 */
 	@ManyToOne()
 	private AuthorBean author;
-	
+
+	/**
+	 * borrow connection
+	 */
 	@OneToOne(mappedBy = "book", cascade = CascadeType.ALL)
 	private BorrowBean borrow;
-	
+
 	/**
 	 * Get the ID of the book.
+	 * 
 	 * @return ID of the book.
 	 */
 	public int getId() {
@@ -70,6 +76,7 @@ public class BookBean implements Serializable {
 
 	/**
 	 * Set the ID of the book.
+	 * 
 	 * @param id New ID of the book.
 	 */
 	public void setId(int id) {
@@ -78,6 +85,7 @@ public class BookBean implements Serializable {
 
 	/**
 	 * Get the title of the book.
+	 * 
 	 * @return Title of the book.
 	 */
 	public String getTitle() {
@@ -86,6 +94,7 @@ public class BookBean implements Serializable {
 
 	/**
 	 * Set the title of the book.
+	 * 
 	 * @param title New title of the book.
 	 */
 	public void setTitle(String title) {
@@ -94,6 +103,7 @@ public class BookBean implements Serializable {
 
 	/**
 	 * Whether the book if available for borrowing of not.
+	 * 
 	 * @return Availability of the book for borrowing.
 	 */
 	public boolean isAvailable() {
@@ -102,6 +112,7 @@ public class BookBean implements Serializable {
 
 	/**
 	 * Set the availability of the book for borrowing.
+	 * 
 	 * @param available New availability of the book for borrowing.
 	 */
 	public void setAvailable(boolean available) {
@@ -110,6 +121,7 @@ public class BookBean implements Serializable {
 
 	/**
 	 * Get the cover image of the book.
+	 * 
 	 * @return Cover image of the book.
 	 */
 	public byte[] getCover() {
@@ -118,6 +130,7 @@ public class BookBean implements Serializable {
 
 	/**
 	 * Set the cover image of the book.
+	 * 
 	 * @param cover New cover image of the book.
 	 */
 	public void setCover(byte[] cover) {
@@ -126,6 +139,7 @@ public class BookBean implements Serializable {
 
 	/**
 	 * Get the type of the book.
+	 * 
 	 * @return Type of the book.
 	 */
 	public BookTypeBean getBookType() {
@@ -134,6 +148,7 @@ public class BookBean implements Serializable {
 
 	/**
 	 * Set the type of the book.
+	 * 
 	 * @param bookType New type of the book.
 	 */
 	public void setBookType(BookTypeBean bookType) {
@@ -142,6 +157,7 @@ public class BookBean implements Serializable {
 
 	/**
 	 * Get the author of the book.
+	 * 
 	 * @return Author of the book.
 	 */
 	public AuthorBean getAuthor() {
@@ -150,17 +166,19 @@ public class BookBean implements Serializable {
 
 	/**
 	 * Set the author of the book.
+	 * 
 	 * @param author New author of the book.
 	 */
 	public void setAuthor(AuthorBean author) {
 		this.author = author;
 	}
-	
+
 	/**
-	* Transform the byte[] with picture data into String.
-	* @return Sring allowing picture display.
-	*/
+	 * Transform the byte[] with picture data into String.
+	 * 
+	 * @return Sring allowing picture display.
+	 */
 	public String getBase64Image() {
-	    return Base64.getEncoder().encodeToString(cover);
+		return Base64.getEncoder().encodeToString(cover);
 	}
 }

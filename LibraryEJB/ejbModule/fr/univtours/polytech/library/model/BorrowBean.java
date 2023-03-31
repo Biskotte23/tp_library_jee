@@ -14,13 +14,10 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
- * Borrow of a book by a user.
-<<<<<<< HEAD
+ * Borrow of a book by a user. <<<<<<< HEAD
  * 
- * @user Jules
-=======
- * @user Jules.
->>>>>>> 67cc81b (Refactorisation of Beans docstring)
+ * @user Jules =======
+ * @user Jules. >>>>>>> 67cc81b (Refactorisation of Beans docstring)
  *
  */
 @Entity
@@ -39,7 +36,7 @@ public class BorrowBean implements Serializable {
 	 * Date of the borrow.
 	 */
 	private LocalDateTime date;
-	
+
 	/**
 	 * Date of the borrow.
 	 */
@@ -142,6 +139,5 @@ public class BorrowBean implements Serializable {
 	public void setRenderingDate(LocalDateTime renderingDate) {
 		this.renderingDate = renderingDate;
 	}
-	
-	
+
 }
