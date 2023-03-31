@@ -44,6 +44,10 @@ header .connected {
 	background-color: var(--color-white);
 }
 
+header .logout {
+	margin-left: 1rem;
+}
+
 h1 {
 	display: block;
 	width: 100%;

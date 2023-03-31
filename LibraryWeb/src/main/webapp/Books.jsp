@@ -20,8 +20,7 @@
 		</c:if>
 		<c:if test="${not empty requestScope.USER}">
 		   <p class="connected"><i class="fa-solid fa-user"></i> ${requestScope.USER}</p>
-		   <br>
-		   <a href="books?logout=true" class="button">Deconnexion</a>
+		   <a href="books?logout=true" class="button logout">Deconnexion</a>
 		</c:if>
 	</header>
 	<h1>Catalogue de livres</h1>
