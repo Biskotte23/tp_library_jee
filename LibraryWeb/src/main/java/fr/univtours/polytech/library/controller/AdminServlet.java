@@ -35,6 +35,10 @@ public class AdminServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		UserBean userConnected = (UserBean) session.getAttribute("UserConected");
+		
+		if (userConnected != null) {
+			request.setAttribute("USER", userConnected);
+		}
 
 		if (userConnected == null || userConnected.getStatus() != UserStatus.admin) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("Books.jsp");
